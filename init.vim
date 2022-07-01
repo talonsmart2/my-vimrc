@@ -4,7 +4,6 @@
 " \ V /| | | | | | | | | (__
 "  \_/ |_|_| |_| |_|_|  \___|
 
-" If you want to look cool, use the terminus font in this repo.
 
 let leaderkey=" "
 set number relativenumber
