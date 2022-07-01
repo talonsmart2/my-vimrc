@@ -1,5 +1,10 @@
-" Talon's vimrc
-" If ypu want to look cool, use the terminus font in this repo.
+" _
+" __   _(_)_ __ ___  _ __ ___
+" \ \ / / | '_ ` _ \| '__/ __|
+" \ V /| | | | | | | | | (__
+"  \_/ |_|_| |_| |_|_|  \___|
+
+" If you want to look cool, use the terminus font in this repo.
 
 let leaderkey=" "
 set number relativenumber
@@ -17,6 +22,9 @@ set wildmenu
 set hid
 set hlsearch
 set magic
+set lazyredraw
+set title
+set ttyfast
 set lazyredraw
 
 " remove error bells
@@ -43,3 +51,23 @@ colorscheme gruvbox
 " If this is your first setup
 PlugInstall
 CocInstall coc-html coc-css coc-python coc-xml coc-json coc-go coc-htmldjango
+
+augroup rc_always_center
+    autocmd!
+    autocmd VimEnter,WinEnter,VimResized * call RCAlwaysCenterOrNot()
+augroup END
+
+function! RCAlwaysCenterOrNot()
+    if g:rc_always_center
+        " Use <Enter> to keep center in insert mode, need proper scrolloff
+        let &scrolloff = float2nr(floor(winheight(0) / 2) + 1)
+        inoremap <CR> <CR><C-o>zz
+    else
+        let &scrolloff = 0
+        silent! iunmap <CR>
+    endif
+endfunction
+
+map <silent> j gj
+map <silent> k gk
+
