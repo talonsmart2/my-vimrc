@@ -13,6 +13,16 @@ set smartcase
 set hlsearch
 set ai
 set si
+set wildmenu
+set hid
+set hlsearch
+set magic
+set lazyredraw
+
+" remove error bells
+set noerrorbells
+set novisualbell
+set tm=500
 
 " vim-plug
 call plug#begin("~/.vimplugins")
